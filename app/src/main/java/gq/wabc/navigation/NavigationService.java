@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.PixelFormat;
-import android.os.Vibrator;
 import android.preference.PreferenceManager;
 import android.view.Gravity;
 import android.view.View;
@@ -18,7 +17,7 @@ public class NavigationService extends AccessibilityService implements View.OnCl
     private WindowManager windowManager;
     private int height, width;
     TextView back, home, recents;
-    boolean backPosition, isVibration;
+    static boolean backPosition;
     SharedPreferences preferences;
     WindowManager.LayoutParams params;
 

@@ -14,7 +14,7 @@ import android.widget.Toast;
 public class SettingsActivity extends PreferenceActivity implements Preference.OnPreferenceClickListener, Preference.OnPreferenceChangeListener {
 
     Preference openService, help, version;
-    CheckBoxPreference backPosition, isVibration;
+    CheckBoxPreference backPosition;
 
     @SuppressWarnings("deprecation")
     @Override
@@ -44,7 +44,6 @@ public class SettingsActivity extends PreferenceActivity implements Preference.O
         openService.setOnPreferenceClickListener(this);
         help.setOnPreferenceClickListener(this);
         backPosition.setOnPreferenceChangeListener(this);
-        isVibration.setOnPreferenceChangeListener(this);
 
     }
 
@@ -81,6 +80,7 @@ public class SettingsActivity extends PreferenceActivity implements Preference.O
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
 
+        NavigationService.backPosition = (boolean)newValue;
         ((CheckBoxPreference) preference).setChecked((boolean) newValue);
 
         return false;
