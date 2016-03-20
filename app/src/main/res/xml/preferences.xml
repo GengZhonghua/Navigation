@@ -3,7 +3,7 @@
 
     <Preference
         android:key="@string/string_open_service"
-        android:summary="@string/click"
+        android:summary="@string/jump"
         android:title="@string/open_service" />
 
     <CheckBoxPreference
@@ -18,9 +18,17 @@
         android:summaryOff="@string/off"
         android:summaryOn="@string/on"
         android:title="@string/vibration" />
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="@string/string_button_size"
+        android:summaryOn="@string/big"
+        android:summaryOff="@string/small"
+        android:title="@string/button_size"
+        />
     <Preference
         android:key="@string/string_help"
-        android:title="@string/help" />
+        android:title="@string/help"
+        android:summary="@string/jump"/>
     <Preference
         android:key="@string/string_feedback"
         android:title="@string/feedback"

@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--title-->
     <string name="version">Version</string>
     <string name="feedback">Feedback</string>
     <string name="help">Help</string>
     <string name="vibration">Vibration</string>
     <string name="position_back">Back Position</string>
     <string name="open_service">Open AccessibilityService</string>
+    <string name="button_size">Button Size</string>
 
+    <!--summary-->
     <string name="left">Left</string>
     <string name="right">Right</string>
     <string name="on">On</string>
     <string name="off">Off</string>
     <string name="send_email">Send Email</string>
-    <string name="click">Click</string>
+    <string name="jump">Jump</string>
+    <string name="big">Big</string>
+    <string name="small">Small</string>
 </resources>
