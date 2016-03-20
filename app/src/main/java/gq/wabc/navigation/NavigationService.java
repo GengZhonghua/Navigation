@@ -3,7 +3,6 @@ package gq.wabc.navigation;
 import android.accessibilityservice.AccessibilityService;
 import android.app.NotificationManager;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.PixelFormat;
 import android.preference.PreferenceManager;
@@ -139,16 +138,16 @@ public class NavigationService extends AccessibilityService implements View.OnCl
         }
     }
 
-    @Override
-    public int onStartCommand(Intent intent, int flags, int startId) {
-        if (back.getVisibility()==View.GONE){
-            back.setVisibility(View.VISIBLE);
-            home.setVisibility(View.VISIBLE);
-            recents.setVisibility(View.VISIBLE);
-        }
-        return super.onStartCommand(intent, flags, startId);
-    }
-
+//    @Override
+//    public int onStartCommand(Intent intent, int flags, int startId) {
+//        if (back.getVisibility()==View.GONE){
+//            back.setVisibility(View.VISIBLE);
+//            home.setVisibility(View.VISIBLE);
+//            recents.setVisibility(View.VISIBLE);
+//        }
+//        return super.onStartCommand(intent, flags, startId);
+//    }
+//
 //    @Override
 //    public boolean onLongClick(View v) {
 //        back.setVisibility(View.GONE);
