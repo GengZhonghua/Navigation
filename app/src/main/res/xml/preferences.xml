@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <Preference
+        android:key="@string/string_open_service"
+        android:summary="@string/click"
+        android:title="@string/open_service" />
+
+    <CheckBoxPreference
+        android:defaultValue="false"
+        android:key="@string/string_position_back"
+        android:summaryOff="@string/left"
+        android:summaryOn="@string/right"
+        android:title="@string/position_back" />
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="@string/string_isVibration"
+        android:summaryOff="@string/off"
+        android:summaryOn="@string/on"
+        android:title="@string/vibration" />
+    <Preference
+        android:key="@string/string_help"
+        android:title="@string/help" />
+    <Preference
+        android:key="@string/string_feedback"
+        android:title="@string/feedback"
+        android:summary="@string/send_email"
+        >
+        <intent
+            android:action="android.intent.action.SENDTO"
+            android:data="mailto:hzg625@gmail.com" />
+    </Preference>
+    <Preference
+        android:key="@string/string_version"
+        android:title="@string/version"
+        />
+</PreferenceScreen>
