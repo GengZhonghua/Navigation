@@ -14,8 +14,7 @@
         android:title="@string/position_back" />
     <Preference
         android:key="@string/string_help"
-        android:title="@string/help"
-        android:summary="@string/jump"/>
+        android:title="@string/help"/>
     <Preference
         android:key="@string/string_feedback"
         android:title="@string/feedback"

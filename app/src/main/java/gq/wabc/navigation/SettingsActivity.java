@@ -1,6 +1,7 @@
 package gq.wabc.navigation;
 
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
@@ -8,14 +9,13 @@ import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.provider.Settings;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 public class SettingsActivity extends PreferenceActivity implements Preference.OnPreferenceClickListener, Preference.OnPreferenceChangeListener {
 
     Preference openService, help, version;
     CheckBoxPreference backPosition;
-
     @SuppressWarnings("deprecation")
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -28,7 +28,6 @@ public class SettingsActivity extends PreferenceActivity implements Preference.O
         }
 
         addPreferencesFromResource(R.xml.preferences);
-
 
         openService = findPreference(getString(R.string.string_open_service));
         backPosition = (CheckBoxPreference) findPreference(getString(R.string.string_position_back));
@@ -72,7 +71,8 @@ public class SettingsActivity extends PreferenceActivity implements Preference.O
         if (key.equals(getString(R.string.string_open_service))) {
             startActivity(new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS));
         } else if (key.equals(getString(R.string.string_help))) {
-            Toast.makeText(this,"help",Toast.LENGTH_SHORT).show();
+            new AlertDialog.Builder(this)
+                    .setView(LayoutInflater.from(this).inflate(R.layout.help, null)).show();
         }
         return false;
     }
@@ -80,7 +80,7 @@ public class SettingsActivity extends PreferenceActivity implements Preference.O
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
 
-        NavigationService.backPosition = (boolean)newValue;
+        NavigationService.backPosition = (boolean) newValue;
         ((CheckBoxPreference) preference).setChecked((boolean) newValue);
 
         return false;

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Navigation</string>
+    <string name="app_name">状态栏导航</string>
 
     <!--key-->
     <string name="string_help">help</string>
@@ -20,7 +20,13 @@
     <string name="left">左</string>
     <string name="right">右</string>
     <string name="send_email">发送邮件</string>
-    <string name="jump">跳转</string>
+    <string name="jump">点击跳转</string>
+    <string name="help_content">开启辅助服务，允许悬浮窗\n
+                                加入后台保护、开机自启\n
+                                透明显示，高度为状态栏的0.8\n
+                                宽度为高度的1.6\n
+                                位置如图所示
+    </string>
 
     <item name="back" type="id"/>
     <item name="home" type="id"/>
