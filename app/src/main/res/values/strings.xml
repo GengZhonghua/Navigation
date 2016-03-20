@@ -4,7 +4,6 @@
     <!--key-->
     <string name="string_help">help</string>
     <string name="string_open_service">open_service</string>
-    <string name="string_isVibration">isVibration</string>
     <string name="string_position_back">position_back</string>
     <string name="string_feedback">feedback</string>
     <string name="string_version">version</string>
@@ -13,7 +12,6 @@
     <string name="version">版本</string>
     <string name="feedback">反馈</string>
     <string name="help">帮助</string>
-    <string name="vibration">震动</string>
     <string name="position_back">返回键位置</string>
     <string name="open_service">开启辅助服务</string>
 
@@ -21,8 +19,6 @@
     <!--summary-->
     <string name="left">左</string>
     <string name="right">右</string>
-    <string name="on">开启</string>
-    <string name="off">关闭</string>
     <string name="send_email">发送邮件</string>
     <string name="jump">跳转</string>
 

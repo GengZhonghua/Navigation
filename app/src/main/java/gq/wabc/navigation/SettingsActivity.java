@@ -9,6 +9,7 @@ import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.provider.Settings;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 public class SettingsActivity extends PreferenceActivity implements Preference.OnPreferenceClickListener, Preference.OnPreferenceChangeListener {
 
@@ -20,14 +21,17 @@ public class SettingsActivity extends PreferenceActivity implements Preference.O
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 //        设置up键可用
-        getActionBar().setDisplayHomeAsUpEnabled(true);
+        try {
+            getActionBar().setDisplayHomeAsUpEnabled(true);
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
 
         addPreferencesFromResource(R.xml.preferences);
 
 
         openService = findPreference(getString(R.string.string_open_service));
         backPosition = (CheckBoxPreference) findPreference(getString(R.string.string_position_back));
-        isVibration = (CheckBoxPreference) findPreference(getString(R.string.string_isVibration));
         help = findPreference(getString(R.string.string_help));
         version = findPreference(getString(R.string.string_version));
         try {
@@ -69,7 +73,7 @@ public class SettingsActivity extends PreferenceActivity implements Preference.O
         if (key.equals(getString(R.string.string_open_service))) {
             startActivity(new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS));
         } else if (key.equals(getString(R.string.string_help))) {
-
+            Toast.makeText(this,"help",Toast.LENGTH_SHORT).show();
         }
         return false;
     }

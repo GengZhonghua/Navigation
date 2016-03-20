@@ -12,12 +12,6 @@
         android:summaryOff="@string/left"
         android:summaryOn="@string/right"
         android:title="@string/position_back" />
-    <CheckBoxPreference
-        android:defaultValue="true"
-        android:key="@string/string_isVibration"
-        android:summaryOff="@string/off"
-        android:summaryOn="@string/on"
-        android:title="@string/vibration" />
     <Preference
         android:key="@string/string_help"
         android:title="@string/help"

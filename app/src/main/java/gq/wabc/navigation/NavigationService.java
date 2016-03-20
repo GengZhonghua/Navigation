@@ -19,7 +19,6 @@ public class NavigationService extends AccessibilityService implements View.OnCl
     private int height, width;
     TextView back, home, recents;
     boolean backPosition, isVibration;
-    Vibrator vibrator;
     SharedPreferences preferences;
     WindowManager.LayoutParams params;
 
@@ -29,11 +28,9 @@ public class NavigationService extends AccessibilityService implements View.OnCl
 
 
         windowManager = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
-        vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
 
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
         backPosition = preferences.getBoolean(getString(R.string.string_position_back), false);
-        isVibration = preferences.getBoolean(getString(R.string.string_isVibration), true);
 
         height = getStatusBarHeight() * 4 / 5;
         width = (int) (height * 1.6);
@@ -115,9 +112,6 @@ public class NavigationService extends AccessibilityService implements View.OnCl
     //    go back. go home. open recent apps.
     @Override
     public void onClick(View v) {
-        if (isVibration) {
-            vibrator.vibrate(50);
-        }
         switch (v.getId()) {
             case R.id.back:
                 if (backPosition) {
