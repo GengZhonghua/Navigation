@@ -2,8 +2,11 @@ package gq.wabc.navigation;
 
 import android.accessibilityservice.AccessibilityService;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.PixelFormat;
+import android.os.Vibrator;
+import android.preference.PreferenceManager;
 import android.view.Gravity;
 import android.view.View;
 import android.view.WindowManager;
@@ -15,6 +18,10 @@ public class NavigationService extends AccessibilityService implements View.OnCl
     private WindowManager windowManager;
     private int height, width;
     TextView back, home, recents;
+    boolean backPosition, isVibration;
+    Vibrator vibrator;
+    SharedPreferences preferences;
+    WindowManager.LayoutParams params;
 
     @Override
     public void onCreate() {
@@ -22,18 +29,22 @@ public class NavigationService extends AccessibilityService implements View.OnCl
 
 
         windowManager = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
+        vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
 
-//        width = getStatusBarHeight();
-//        height = getStatusBarHeight()*2/3;
+        preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        backPosition = preferences.getBoolean(getString(R.string.string_position_back), false);
+        isVibration = preferences.getBoolean(getString(R.string.string_isVibration), true);
 
-        height = getStatusBarHeight();
-        width = (int)(height*1.6);
+        height = getStatusBarHeight() * 4 / 5;
+        width = (int) (height * 1.6);
+
         createFloatView();
+
     }
 
     /*
-    获取状态栏高度
-     */
+            获取状态栏高度
+             */
     public int getStatusBarHeight() {
         int result = 0;
         int resourceId = getResources().getIdentifier("status_bar_height", "dimen", "android");
@@ -71,7 +82,7 @@ public class NavigationService extends AccessibilityService implements View.OnCl
         home.setId(R.id.home);
         recents.setId(R.id.recents);
 
-        WindowManager.LayoutParams params = new WindowManager.LayoutParams();
+        params = new WindowManager.LayoutParams();
         params.type = WindowManager.LayoutParams.TYPE_SYSTEM_ERROR;
         params.format = PixelFormat.RGBA_8888;
         params.flags = WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE | WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL
@@ -101,21 +112,34 @@ public class NavigationService extends AccessibilityService implements View.OnCl
 
     }
 
-//    go back. go home. open recent apps.
+    //    go back. go home. open recent apps.
     @Override
     public void onClick(View v) {
+        if (isVibration) {
+            vibrator.vibrate(50);
+        }
         switch (v.getId()) {
             case R.id.back:
-                performGlobalAction(AccessibilityService.GLOBAL_ACTION_BACK);
+                if (backPosition) {
+                    performGlobalAction(AccessibilityService.GLOBAL_ACTION_RECENTS);
+                } else {
+                    performGlobalAction(AccessibilityService.GLOBAL_ACTION_BACK);
+                }
                 break;
             case R.id.home:
                 performGlobalAction(AccessibilityService.GLOBAL_ACTION_HOME);
                 break;
             case R.id.recents:
-                performGlobalAction(AccessibilityService.GLOBAL_ACTION_RECENTS);
+                if (backPosition) {
+                    performGlobalAction(AccessibilityService.GLOBAL_ACTION_BACK);
+                } else {
+                    performGlobalAction(AccessibilityService.GLOBAL_ACTION_RECENTS);
+                }
                 break;
             default:
                 break;
         }
     }
+
+
 }

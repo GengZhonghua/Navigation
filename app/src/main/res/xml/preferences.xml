@@ -18,13 +18,6 @@
         android:summaryOff="@string/off"
         android:summaryOn="@string/on"
         android:title="@string/vibration" />
-    <CheckBoxPreference
-        android:defaultValue="true"
-        android:key="@string/string_button_size"
-        android:summaryOn="@string/big"
-        android:summaryOff="@string/small"
-        android:title="@string/button_size"
-        />
     <Preference
         android:key="@string/string_help"
         android:title="@string/help"

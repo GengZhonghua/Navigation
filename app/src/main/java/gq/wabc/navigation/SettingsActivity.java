@@ -41,6 +41,7 @@ public class SettingsActivity extends PreferenceActivity implements Preference.O
         help.setOnPreferenceClickListener(this);
         backPosition.setOnPreferenceChangeListener(this);
         isVibration.setOnPreferenceChangeListener(this);
+
     }
 
     @Override
@@ -57,17 +58,17 @@ public class SettingsActivity extends PreferenceActivity implements Preference.O
     protected void onDestroy() {
         super.onDestroy();
 //        Activity销毁时启动辅助服务
-        startService(new Intent(this, NavigationService.class));
+        Intent intent = new Intent(this, NavigationService.class);
+        startService(intent);
     }
 
     @Override
     public boolean onPreferenceClick(Preference preference) {
 
         String key = preference.getKey();
-        if (key.equals(getString(R.string.string_open_service))){
+        if (key.equals(getString(R.string.string_open_service))) {
             startActivity(new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS));
-        }
-        else if (key.equals(getString(R.string.string_help))){
+        } else if (key.equals(getString(R.string.string_help))) {
 
         }
         return false;
@@ -76,7 +77,7 @@ public class SettingsActivity extends PreferenceActivity implements Preference.O
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
 
-        ((CheckBoxPreference)preference).setChecked((boolean)newValue);
+        ((CheckBoxPreference) preference).setChecked((boolean) newValue);
 
         return false;
     }
