@@ -7,6 +7,7 @@
     <string name="string_position_back">position_back</string>
     <string name="string_feedback">feedback</string>
     <string name="string_version">version</string>
+    <string name="string_source">source</string>
 
     <!--title-->
     <string name="version">版本</string>
@@ -15,7 +16,7 @@
     <string name="position_back">返回键位置</string>
     <string name="open_service">开启辅助服务</string>
     <string name="display">显示按钮</string>
-
+    <string name="source">源码</string>
 
     <!--summary-->
     <string name="left">左</string>
@@ -29,7 +30,7 @@
                                 位置如图所示
     </string>
 
-    <item name="back" type="id"/>
-    <item name="home" type="id"/>
-    <item name="recents" type="id"/>
+    <item name="back" type="id" />
+    <item name="home" type="id" />
+    <item name="recents" type="id" />
 </resources>

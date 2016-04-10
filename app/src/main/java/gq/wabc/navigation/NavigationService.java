@@ -4,7 +4,6 @@ import android.accessibilityservice.AccessibilityService;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.graphics.PixelFormat;
 import android.preference.PreferenceManager;
 import android.view.Gravity;
@@ -13,15 +12,15 @@ import android.view.WindowManager;
 import android.view.accessibility.AccessibilityEvent;
 import android.widget.TextView;
 
-public class NavigationService extends AccessibilityService implements View.OnClickListener{
+public class NavigationService extends AccessibilityService implements View.OnClickListener {
 
-    private WindowManager windowManager;
-    private int height, width;
-    TextView back, home, recents;
     static boolean backPosition;
+    TextView back, home, recents;
     SharedPreferences preferences;
     WindowManager.LayoutParams params;
     NotificationManager notificationManager;
+    private WindowManager windowManager;
+    private int height, width;
 
     @Override
     public void onCreate() {

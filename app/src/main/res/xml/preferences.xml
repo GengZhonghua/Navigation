@@ -14,18 +14,23 @@
         android:title="@string/position_back" />
     <Preference
         android:key="@string/string_help"
-        android:title="@string/help"/>
+        android:title="@string/help" />
     <Preference
         android:key="@string/string_feedback"
-        android:title="@string/feedback"
         android:summary="@string/send_email"
-        >
+        android:title="@string/feedback">
         <intent
             android:action="android.intent.action.SENDTO"
             android:data="mailto:hzg625@gmail.com" />
     </Preference>
     <Preference
         android:key="@string/string_version"
-        android:title="@string/version"
-        />
+        android:title="@string/version" />
+    <Preference
+        android:key="@string/string_source"
+        android:title="@string/source">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:data="https://github.com/GengZhonghua/Navigation" />
+    </Preference>
 </PreferenceScreen>
