@@ -4,6 +4,7 @@ import android.accessibilityservice.AccessibilityService;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.graphics.PixelFormat;
 import android.preference.PreferenceManager;
 import android.view.Gravity;
@@ -12,7 +13,7 @@ import android.view.WindowManager;
 import android.view.accessibility.AccessibilityEvent;
 import android.widget.TextView;
 
-public class NavigationService extends AccessibilityService implements View.OnClickListener {
+public class NavigationService extends AccessibilityService implements View.OnClickListener{
 
     private WindowManager windowManager;
     private int height, width;
@@ -59,10 +60,6 @@ public class NavigationService extends AccessibilityService implements View.OnCl
         home = new TextView(this);
         recents = new TextView(this);
 
-//        back.setBackgroundColor(Color.RED);
-//        home.setBackgroundColor(Color.BLUE);
-//        recents.setBackgroundColor(Color.GREEN);
-
         back.setWidth(width);
         back.setHeight(height);
         home.setWidth(width);
@@ -73,10 +70,6 @@ public class NavigationService extends AccessibilityService implements View.OnCl
         back.setOnClickListener(this);
         home.setOnClickListener(this);
         recents.setOnClickListener(this);
-
-//        back.setOnLongClickListener(this);
-//        home.setOnLongClickListener(this);
-//        recents.setOnLongClickListener(this);
 
         back.setId(R.id.back);
         home.setId(R.id.home);
@@ -137,34 +130,4 @@ public class NavigationService extends AccessibilityService implements View.OnCl
                 break;
         }
     }
-
-//    @Override
-//    public int onStartCommand(Intent intent, int flags, int startId) {
-//        if (back.getVisibility()==View.GONE){
-//            back.setVisibility(View.VISIBLE);
-//            home.setVisibility(View.VISIBLE);
-//            recents.setVisibility(View.VISIBLE);
-//        }
-//        return super.onStartCommand(intent, flags, startId);
-//    }
-//
-//    @Override
-//    public boolean onLongClick(View v) {
-//        back.setVisibility(View.GONE);
-//        home.setVisibility(View.GONE);
-//        recents.setVisibility(View.GONE);
-//
-//        NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
-//        builder.setSmallIcon(android.R.drawable.stat_notify_error)
-//                .setContentTitle("已隐藏到通知栏")
-//                .setContentText("点击返回").setOngoing(true)
-//                .setTicker("状态栏导航按钮已隐藏")
-//                .setAutoCancel(true);
-//        Notification notification = builder.build();
-//        notification.flags = Notification.FLAG_FOREGROUND_SERVICE;
-//        PendingIntent intent = PendingIntent.getService(this,0,new Intent(this,NavigationService.class),0);
-//        builder.setContentIntent(intent);
-//        notificationManager.notify(0,notification);
-//        return true;
-//    }
 }

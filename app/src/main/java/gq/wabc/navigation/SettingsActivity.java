@@ -1,6 +1,5 @@
 package gq.wabc.navigation;
 
-
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -8,7 +7,9 @@ import android.os.Bundle;
 import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
+import android.preference.SwitchPreference;
 import android.provider.Settings;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 
@@ -16,6 +17,8 @@ public class SettingsActivity extends PreferenceActivity implements Preference.O
 
     Preference openService, help, version;
     CheckBoxPreference backPosition;
+    NavigationService service;
+
     @SuppressWarnings("deprecation")
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -28,6 +31,8 @@ public class SettingsActivity extends PreferenceActivity implements Preference.O
         }
 
         addPreferencesFromResource(R.xml.preferences);
+
+        service = new NavigationService();
 
         openService = findPreference(getString(R.string.string_open_service));
         backPosition = (CheckBoxPreference) findPreference(getString(R.string.string_position_back));
@@ -43,7 +48,6 @@ public class SettingsActivity extends PreferenceActivity implements Preference.O
         openService.setOnPreferenceClickListener(this);
         help.setOnPreferenceClickListener(this);
         backPosition.setOnPreferenceChangeListener(this);
-
     }
 
     @Override
@@ -79,10 +83,8 @@ public class SettingsActivity extends PreferenceActivity implements Preference.O
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-
         NavigationService.backPosition = (boolean) newValue;
         ((CheckBoxPreference) preference).setChecked((boolean) newValue);
-
         return false;
     }
 }
