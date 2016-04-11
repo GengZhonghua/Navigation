@@ -4,6 +4,7 @@
     <!--key-->
     <string name="string_help">help</string>
     <string name="string_open_service">open_service</string>
+    <string name="string_overlay">overlay</string>
     <string name="string_position_back">position_back</string>
     <string name="string_feedback">feedback</string>
     <string name="string_version">version</string>
@@ -13,6 +14,7 @@
     <string name="version">版本</string>
     <string name="feedback">反馈</string>
     <string name="help">帮助</string>
+    <string name="overlay">在其他应用上层显示</string>
     <string name="position_back">返回键位置</string>
     <string name="open_service">开启辅助服务</string>
     <string name="display">显示按钮</string>
@@ -23,8 +25,8 @@
     <string name="right">右</string>
     <string name="send_email">发送邮件</string>
     <string name="jump">点击跳转</string>
-    <string name="help_content">开启辅助服务，允许悬浮窗\n
-                                加入后台保护、开机自启\n
+    <string name="help_content">开启辅助服务，在其他应用上层显示\n
+                                加入后台保护，开机自启\n
                                 透明显示，高度为状态栏的0.8\n
                                 宽度为高度的1.6\n
                                 位置如图所示

@@ -15,7 +15,7 @@ import android.view.MenuItem;
 
 public class SettingsActivity extends PreferenceActivity implements Preference.OnPreferenceClickListener, Preference.OnPreferenceChangeListener {
 
-    Preference openService, help, version;
+    Preference openService, overlay, help, version;
     CheckBoxPreference backPosition;
     NavigationService service;
 
@@ -35,6 +35,7 @@ public class SettingsActivity extends PreferenceActivity implements Preference.O
         service = new NavigationService();
 
         openService = findPreference(getString(R.string.string_open_service));
+        overlay = findPreference(getString(R.string.string_overlay));
         backPosition = (CheckBoxPreference) findPreference(getString(R.string.string_position_back));
         help = findPreference(getString(R.string.string_help));
         version = findPreference(getString(R.string.string_version));
@@ -46,6 +47,7 @@ public class SettingsActivity extends PreferenceActivity implements Preference.O
         }
 
         openService.setOnPreferenceClickListener(this);
+        overlay.setOnPreferenceClickListener(this);
         help.setOnPreferenceClickListener(this);
         backPosition.setOnPreferenceChangeListener(this);
     }
@@ -74,7 +76,11 @@ public class SettingsActivity extends PreferenceActivity implements Preference.O
         String key = preference.getKey();
         if (key.equals(getString(R.string.string_open_service))) {
             startActivity(new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS));
-        } else if (key.equals(getString(R.string.string_help))) {
+        }
+        else if (key.equals(getString(R.string.string_overlay))){
+            startActivity(new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION));
+        }
+        else if (key.equals(getString(R.string.string_help))) {
             new AlertDialog.Builder(this)
                     .setView(LayoutInflater.from(this).inflate(R.layout.help, null)).show();
         }

@@ -5,6 +5,10 @@
         android:key="@string/string_open_service"
         android:summary="@string/jump"
         android:title="@string/open_service" />
+    <Preference
+        android:key="@string/string_overlay"
+        android:summary="@string/jump"
+        android:title="@string/overlay" />
 
     <CheckBoxPreference
         android:defaultValue="false"
@@ -24,13 +28,13 @@
             android:data="mailto:hzg625@gmail.com" />
     </Preference>
     <Preference
-        android:key="@string/string_version"
-        android:title="@string/version" />
-    <Preference
         android:key="@string/string_source"
         android:title="@string/source">
         <intent
             android:action="android.intent.action.VIEW"
             android:data="https://github.com/GengZhonghua/Navigation" />
     </Preference>
+    <Preference
+        android:key="@string/string_version"
+        android:title="@string/version" />
 </PreferenceScreen>
